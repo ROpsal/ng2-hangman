@@ -1,0 +1,9 @@
+<div class="mdl-grid mdl-grid--no-spacing" id="status-component">
+  <div class="mdl-cell mdl-cell--10-col mdl-cell--8-col-desktop center-text">
+    <h4 class="mdl-color-text--red-900">{{statusInfo.caption}}</h4>
+    <h3 class="mdl-color-text--blue-900">{{statusInfo.guessWord | spaced}}</h3>
+  </div>
+  <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-desktop center-text">
+    <h5 class="mdl-color-text--red-700">Wins: {{statusInfo.wins}} <br> Losses: {{statusInfo.losses}}</h5>
+  </div>
+</div>

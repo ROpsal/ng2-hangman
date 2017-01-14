@@ -1,0 +1,13 @@
+<!-- Example with button being disabled. -->
+<div *ngFor="let row of rowsOfKeys" class="mdl-grid center-items">
+  <span *ngFor="let key of row">
+    <ng-container>
+      <button
+        (click)="virtualKeySubject.next(key)"
+        class="mdl-button mdl-js-button mdl-button--fab mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+        [disabled]=isKeyUsed(key)>
+        {{ key }}
+      </button>
+    </ng-container>
+  </span>
+</div>

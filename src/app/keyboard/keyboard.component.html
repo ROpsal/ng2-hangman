@@ -1,0 +1,17 @@
+<!-- Example using ngSwitch and two buttons. -->
+<div *ngFor="let row of rowsOfKeys" class="mdl-grid center-items">
+  <span *ngFor="let key of row">
+    <ng-container [ngSwitch]=isKeyUsed(key)>
+      <button *ngSwitchCase=false
+        (click)="virtualKeySubject.next(key)"
+        class="mdl-button mdl-js-button mdl-button--fab mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        {{ key }}
+      </button>
+      <button *ngSwitchCase=true
+        (click)="virtualKeySubject.next(key)"
+        class="mdl-button mdl-js-button mdl-button--fab mdl-button--raised mdl-js-ripple-effect">
+        {{ key }}
+      </button>
+    </ng-container>
+  </span>
+</div>
