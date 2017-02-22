@@ -9,6 +9,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
+        "resources",
         "favicon.ico"
       ],
       "index": "index.html",
@@ -25,8 +26,8 @@
       "scripts": [
         "../node_modules/material-design-lite/material.min.js"
       ],
+      "environmentSource": "environments/environment.ts",
       "environments": {
-        "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }

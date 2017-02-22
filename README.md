@@ -1,22 +1,22 @@
-# Angular 2 Hangman Game#
+# Angular Hangman Game#
 
 ----------
 
 The Hangman word-guessing game hits a nice sweet spot when learning a new computer language. Not as trivial as "Hello World" but not overly difficult to implement.
 
-This version of Hangman was written utilizing the [Typescript](https://www.typescriptlang.org/) language, version 2.0 and the [Angular 2](https://angular.io/) framework.      
+This version of Hangman was written utilizing the [Typescript](https://www.typescriptlang.org/) language, version 2.1 and the [Angular 4](https://angular.io/) framework.      
 
 ![window view](https://github.com/ROpsal/ng2-hangman/blob/master/images/window.png)
 
 ## Prerequisites
 
-This project needs [node](https://nodejs.org/en/) and the node package manager (npm).  Currently node is at version 6.9.4 and npm 3.10.10. Grab the MSI installer at [https://nodejs.org/en/](https://nodejs.org/en/). This also installs npm.
+This project needs [node](https://nodejs.org/en/) and the node package manager (npm).  Currently node is at version 6.10.0 and npm 3.10.10. Grab the MSI installer at [https://nodejs.org/en/](https://nodejs.org/en/). This also installs npm.
 
 ## Getting Started
 
 This project was generated with a beta version of [angular-cli](https://github.com/angular/angular-cli).  Follow the angular-cli directions for installing but basically:
 
-	npm install -g angular-cli
+	npm install -g @angular/cli@latest
 
 From the Hangman project root directory, install *node* modules using:
 	
