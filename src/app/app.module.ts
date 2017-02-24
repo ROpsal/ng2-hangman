@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import {APP_BASE_HREF} from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { WordService } from './word.service';
@@ -30,7 +31,11 @@ import { MDL } from './mdl.directive';
     FormsModule,
     HttpModule
   ],
-  providers: [WordService, PlayGameService],
+  providers: [
+    WordService,
+    PlayGameService,
+    {provide: APP_BASE_HREF, useValue: window['baseUrl']}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

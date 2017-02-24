@@ -10,7 +10,7 @@ export class WordService {
 
   private words : Array<string> ;
   constructor(private http: Http) {
-    http.get('../resources/dictionaryWords.txt')
+    http.get('resources/dictionaryWords.txt')
     .map((res : Response) => res.text())
     .map(text => text.toUpperCase())
     .map(text => text.split('\n'))
