@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class Angular2HelloWorldPage {
+export class Ng2HangmanPage {
   navigateTo() {
     return browser.get('/');
   }

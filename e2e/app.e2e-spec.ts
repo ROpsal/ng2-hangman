@@ -1,10 +1,10 @@
-import { Angular2HelloWorldPage } from './app.po';
+import { Ng2HangmanPage } from './app.po';
 
-describe('angular2-hello-world App', function() {
-  let page: Angular2HelloWorldPage;
+describe('Ng2 Hangman App', () => {
+  let page: Ng2HangmanPage;
 
   beforeEach(() => {
-    page = new Angular2HelloWorldPage();
+    page = new Ng2HangmanPage();
   });
 
   it('should display message saying app works', () => {

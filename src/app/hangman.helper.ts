@@ -11,16 +11,6 @@ export namespace Hangman {
     return spacedWord ;
   }
 
-  // As above function, except wrapped as an Angular 2 pipe.
-  @Pipe({
-  name: 'spaced'
-  })
-  export class SpacedPipe implements PipeTransform {
-    transform(word: string): string {
-      return wordJoin(word.split('')).join('') ;
-    }
-  }
-
   // The possible letters for Hangman as a set.
   export function alphaSet() : Set<string> {
     let aCharCode : number = 'A'.charCodeAt(0)
@@ -42,5 +32,16 @@ export namespace Hangman {
     return ( (! guessSet.has(letter)) && (alphaSet().has(letter)) && (-1 === hangList.indexOf(letter)) )
       ? new Set<string>(guessSet).add(letter)
       : new Set<string>(guessSet) ;
+  }
+}
+
+// Moved outside of 'Hangman' namespace due to an AOT issue when building.
+// As above function, except wrapped as an Angular 2 pipe.
+@Pipe({
+name: 'spaced'
+})
+export class SpacedPipe implements PipeTransform {
+  transform(word: string): string {
+    return Hangman.wordJoin(word.split('')).join('') ;
   }
 }
