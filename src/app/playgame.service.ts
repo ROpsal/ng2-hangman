@@ -26,7 +26,7 @@ export class PlayGameService {
     active    : false,
     wins      : 0,
     losses    : 0
-  }
+  } ;
 
   // Monitors count of body parts.
   private bodyPartsSubject = new Subject<number>() ;
@@ -42,11 +42,11 @@ export class PlayGameService {
 
     if (this.statusInfo.active) {
       let guessList = this.statusInfo.guessWord.split('') ;
-      let hangList  = this.statusInfo.hangWord.split('') ;
+      const hangList  = this.statusInfo.hangWord.split('') ;
       guessList = hm.applyGuess(letter, guessList, hangList) ;
       this.statusInfo.guessWord = guessList.join('') ;
 
-      let guessSet = this.statusInfo.guessSet ;
+      const guessSet = this.statusInfo.guessSet ;
       this.statusInfo.guessSet = hm.applyGuess_(letter, guessSet, hangList) ;
       this.bodyPartsSubject.next(this.statusInfo.guessSet.size) ;
       console.log(`Guess set   : ` + Array.from(this.statusInfo.guessSet)) ;
@@ -54,7 +54,7 @@ export class PlayGameService {
       if (this.statusInfo.guessWord === this.statusInfo.hangWord) {
         this.statusInfo.wins++ ;
         this.statusInfo.active = false ;
-        let caption = (0 === this.statusInfo.guessSet.size)
+        const caption = (0 === this.statusInfo.guessSet.size)
           ? 'Congratulations ⇨ Fantastic play!'
           : 'Congratulations on your win!' ;
         this.statusInfo.caption = caption ;
@@ -67,11 +67,11 @@ export class PlayGameService {
         this.statusInfo.guessWord = this.statusInfo.hangWord ;
       }
 
-      else if (this.statusInfo.guessSet.size+2 == hm.maxGuessess()) {
+      else if (this.statusInfo.guessSet.size + 2 === hm.maxGuessess()) {
         this.statusInfo.caption = 'Two chances remaining!' ;
       }
 
-      else if (this.statusInfo.guessSet.size+1 == hm.maxGuessess()) {
+      else if (this.statusInfo.guessSet.size + 1 === hm.maxGuessess()) {
         this.statusInfo.caption = 'Take care, only one chance left!' ;
       }
 

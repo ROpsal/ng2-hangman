@@ -31,7 +31,7 @@
       "variables-before-functions"
     ],
     "no-arg": true,
-    "no-bitwise": true,
+    "no-bitwise": false,
     "no-console": [
       true,
       "debug",
@@ -60,7 +60,6 @@
       true,
       "check-open-brace",
       "check-catch",
-      "check-else",
       "check-whitespace"
     ],
     "prefer-const": true,
@@ -79,11 +78,11 @@
     "typedef-whitespace": [
       true,
       {
-        "call-signature": "nospace",
-        "index-signature": "nospace",
-        "parameter": "nospace",
-        "property-declaration": "nospace",
-        "variable-declaration": "nospace"
+        "call-signature": "onespace",
+        "index-signature": "onespace",
+        "parameter": "onespace",
+        "property-declaration": "onespace",
+        "variable-declaration": "onespace"
       }
     ],
     "typeof-compare": true,
