@@ -13,7 +13,7 @@ export class KeyboardComponent implements OnInit {
   private upperKeys : Array<string> = 'QWERTYUIOP'.split('') ;
   private innerKeys : Array<string> = 'ASDFGHJKL'.split('') ;
   private lowerKeys : Array<string> = 'ZXCVBNM'.split('') ;
-  private rowsOfKeys : Array<Array<string>> = [this.upperKeys, this.innerKeys, this.lowerKeys] ;
+  readonly rowsOfKeys : Array<Array<string>> = [this.upperKeys, this.innerKeys, this.lowerKeys] ;
 
   // Keys that have been "used" by the Hangman game.
   private usedKeySet : Set<string> = new Set<string>() ;

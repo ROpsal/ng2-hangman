@@ -9,7 +9,7 @@ import { Subject } from 'rxjs/Subject';
 export class ControlComponent implements OnInit {
 
   // 'New Game' button events are pushed to this subject.
-  private newGameSubject = new Subject() ;
+  public newGameSubject = new Subject() ;
 
   constructor() {}
   ngOnInit() {}
