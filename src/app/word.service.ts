@@ -10,14 +10,14 @@ export class WordService {
 
   // https://404it.no/en/blog/javascript_get_base_url_or_root_url
   // https://developer.mozilla.org/en-US/docs/Web/API/Location
-  private getBaseUrl() : string {
+  private baseUrl() : string {
 	  let re = new RegExp(/^.*\//);
 	  return re.exec(window.location.href)[0];
     }
 
   private words : Array<string> ;
   constructor(private http: Http) {
-    http.get(this.getBaseUrl() + 'resources/dictionaryWords.txt')
+    http.get(this.baseUrl() + 'resources/dictionaryWords.txt')
     .map((res : Response) => res.text())
     .map(text => text.toUpperCase())
     .map(text => text.split('\n'))
