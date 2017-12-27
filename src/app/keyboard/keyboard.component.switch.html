@@ -4,12 +4,12 @@
     <ng-container [ngSwitch]=isKeyUsed(key)>
       <button *ngSwitchCase=false
         (click)="virtualKeySubject.next(key)"
-        class="mdl-button mdl-js-button mdl-button--fab mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        mat-fab color="accent">
         {{ key }}
       </button>
       <button *ngSwitchCase=true
         (click)="virtualKeySubject.next(key)"
-        class="mdl-button mdl-js-button mdl-button--fab mdl-button--raised mdl-js-ripple-effect">
+        mat-fab color="primary">
         {{ key }}
       </button>
     </ng-container>
