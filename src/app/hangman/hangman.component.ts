@@ -18,10 +18,10 @@ export class HangmanComponent implements OnInit {
 
   ngOnInit() {
     // Initialize canvas to element's dimensions and return canvas.
-    let initCanvas = (id: string): HTMLCanvasElement => {
-      let canvas = <HTMLCanvasElement>document.getElementById(id) ;
+    const initCanvas = (id : string) : HTMLCanvasElement => {
+      const canvas = <HTMLCanvasElement>document.getElementById(id) ;
       if (canvas) {
-        let positionInfo = canvas.getBoundingClientRect() ;
+        const positionInfo = canvas.getBoundingClientRect() ;
         if (positionInfo) {
           canvas.height = positionInfo.height ;
           canvas.width  = positionInfo.width ;
@@ -39,15 +39,14 @@ export class HangmanComponent implements OnInit {
   }
 
   private drawSmiley() {
-    let canvas = this.canvasHangman;
+    const canvas = this.canvasHangman;
     if (canvas) {
-      let context = canvas.getContext('2d') ;
-      let centerX = canvas.width  >> 1 ;    // Middle of drawing.
-      let centerY = canvas.height >> 1 ;    // Center of head.
-      let radius  = canvas.height  / 5 ;
-      let eyeRadius  = canvas.height >> 6 ;
-      let eyeXOffset = canvas.height >> 4 ;
-      let eyeYOffset = canvas.height / 20 ;
+      const context = canvas.getContext('2d') ;
+      const centerX = canvas.width  >> 1 ;    // Middle of drawing.
+      const centerY = canvas.height >> 1 ;    // Center of head.
+      const radius  = canvas.height  / 5 ;
+      const eyeRadius  = canvas.height >> 6 ;
+      const eyeXOffset = canvas.height >> 4 ;
 
       // Keep these items fixed.
       context.lineWidth = 5 ;
@@ -61,9 +60,9 @@ export class HangmanComponent implements OnInit {
 
       // Draw the eyes.
       context.beginPath() ;
-      let eyeXL = centerX - eyeXOffset ;
-      let eyeXR = centerX + eyeXOffset ;
-      let eyeY  = centerY - eyeXOffset ;
+      const eyeXL = centerX - eyeXOffset ;
+      const eyeXR = centerX + eyeXOffset ;
+      const eyeY  = centerY - eyeXOffset ;
       context.arc(eyeXL, eyeY, eyeRadius, 0, 2 * Math.PI, false) ;
       context.arc(eyeXR, eyeY, eyeRadius, 0, 2 * Math.PI, false) ;
       context.fill() ;
@@ -76,11 +75,11 @@ export class HangmanComponent implements OnInit {
   }
 
   private drawGallows() {
-    let canvas = this.canvasGallows;
+    const canvas = this.canvasGallows;
     if (canvas) {
-      let context = canvas.getContext('2d') ;
-      let lineWidth = 12 ;
-      let halfWidth = lineWidth >> 1 ;
+      const context = canvas.getContext('2d') ;
+      const lineWidth = 12 ;
+      const halfWidth = lineWidth >> 1 ;
 
       // Keep these items fixed.
       context.lineWidth = lineWidth ;
@@ -106,9 +105,9 @@ export class HangmanComponent implements OnInit {
   }
 
   private drawNoose() {
-    let canvas = this.canvasHangman ;
+    const canvas = this.canvasHangman ;
     if (canvas) {
-      let context = canvas.getContext('2d') ;
+      const context = canvas.getContext('2d') ;
 
       // Keep these items fixed.
       context.lineWidth = 6 ;
@@ -123,11 +122,11 @@ export class HangmanComponent implements OnInit {
 
   // Configured as a callback.
   drawBody = (parts: number = 0): void => {
-    let canvas = this.canvasHangman;
+    const canvas = this.canvasHangman;
     if (canvas) {
-      let context = canvas.getContext('2d') ;
+      const context = canvas.getContext('2d') ;
 
-      // Clear out everyting on this layer!
+      // Clear out everything on this layer!
       context.clearRect(0, 0, canvas.width, canvas.height) ;
 
       // If no body parts to draw, then do smiley otherwise do noose.
@@ -138,10 +137,10 @@ export class HangmanComponent implements OnInit {
       context.strokeStyle = this.bodyColor ;
 
       // Here we draw the body, one piece at a time.
-      let radius   = canvas.height / 12 ;
-      let diameter = canvas.height / 6 ;
-      let bodyCenterX = canvas.width >> 1 ;
-      let headCenterY = radius + diameter ;
+      const radius   = canvas.height / 12 ;
+      const diameter = canvas.height / 6 ;
+      const bodyCenterX = canvas.width >> 1 ;
+      const headCenterY = radius + diameter ;
 
       if (0 < parts) {
         // Draw the head.

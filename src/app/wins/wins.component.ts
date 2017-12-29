@@ -1,5 +1,5 @@
 import { Component, AfterViewChecked } from '@angular/core';
-import { PlayGameService, StatusInfo } from '../playgame.service'
+import { PlayGameService, StatusInfo } from '../playgame.service' ;
 
 
 @Component({

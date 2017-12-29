@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-
+import { Observable } from 'rxjs/Observable';
+import { Subject} from 'rxjs/Subject';
+import 'rxjs/add/observable/fromEvent';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/merge';
 
 @Component({
   selector: 'app-keyboard',
@@ -28,7 +32,7 @@ export class KeyboardComponent implements OnInit {
   constructor() {
 
     // Predicate for letter is in range check.
-    let isLetterAtoZ = (letter : string) : boolean => {
+    const isLetterAtoZ = (letter : string) : boolean => {
       return ('A'.charCodeAt(0) <= letter.charCodeAt(0))
           && ('Z'.charCodeAt(0) >= letter.charCodeAt(0)) ;
     }

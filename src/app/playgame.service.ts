@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs/Subject' ;
 
 import { Hangman as hm } from './hangman.helper';
 import { WordService } from './word.service';

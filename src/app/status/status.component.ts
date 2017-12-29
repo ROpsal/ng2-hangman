@@ -1,5 +1,5 @@
 import { Component, AfterViewChecked } from '@angular/core';
-import { PlayGameService, StatusInfo } from '../playgame.service'
+import { PlayGameService, StatusInfo } from '../playgame.service' ;
 
 
 @Component({
@@ -16,9 +16,9 @@ export class StatusComponent implements AfterViewChecked {
 
   ngAfterViewChecked() {
     // This keeps the status height from shrinking when caption is hidden.
-    let statusElement = document.getElementById('status-component');
+    const statusElement = document.getElementById('status-component');
     if (statusElement) {
-      let positionInfo = statusElement.getBoundingClientRect();
+      const positionInfo = statusElement.getBoundingClientRect();
       if (positionInfo) {
         statusElement.style.minHeight = positionInfo.height + 'px' ;
       }
