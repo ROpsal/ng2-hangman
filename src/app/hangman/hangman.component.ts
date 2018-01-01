@@ -121,7 +121,7 @@ export class HangmanComponent implements OnInit {
   }
 
   // Configured as a callback.
-  drawBody = (parts: number = 0): void => {
+  drawBody = (parts : number = 0) : void => {
     const canvas = this.canvasHangman;
     if (canvas) {
       const context = canvas.getContext('2d') ;

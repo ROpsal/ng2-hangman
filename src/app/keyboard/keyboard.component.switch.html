@@ -1,5 +1,5 @@
 <!-- Example using ngSwitch and two buttons. -->
-<div *ngFor="let row of rowsOfKeys">
+<div *ngFor="let row of rowsOfKeys" class="keyboard center-items">
   <span *ngFor="let key of row">
     <ng-container [ngSwitch]=isKeyUsed(key)>
       <button *ngSwitchCase=false

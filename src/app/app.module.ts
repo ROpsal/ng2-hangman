@@ -13,7 +13,7 @@ import { ControlComponent } from './control/control.component';
 import { StatusComponent } from './status/status.component';
 import { WinsComponent } from './wins/wins.component';
 import { KeyboardComponent } from './keyboard/keyboard.component';
-import { SpacedPipe } from './hangman.helper';
+import { Hangman as hm } from './hangman.helper';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { SpacedPipe } from './hangman.helper';
     KeyboardComponent,
     StatusComponent,
     WinsComponent,
-    SpacedPipe
+    hm.SpacedPipe
   ],
   imports: [
     BrowserModule,

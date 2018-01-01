@@ -11,6 +11,16 @@ export namespace Hangman {
     return spacedWord ;
   }
 
+  // As 'wordJoin' function, except wrapped as an Angular pipe.
+  @Pipe({
+    name: 'spaced'
+  })
+  export class SpacedPipe implements PipeTransform {
+    transform(word : string) : string {
+      return Hangman.wordJoin(word.split('')).join('') ;
+    }
+  }
+
   // The possible letters for Hangman as a set.
   export function alphaSet() : Set<string> {
     const aCharCode : number = 'A'.charCodeAt(0) ;
@@ -18,7 +28,7 @@ export namespace Hangman {
   }
 
   // Maximum guess count for Hangman.
-  export function maxGuessess() : number {
+  export function maxGuesses() : number {
     return 6 ;
   }
 
@@ -35,13 +45,3 @@ export namespace Hangman {
   }
 }
 
-// Moved outside of 'Hangman' namespace due to an AOT issue when building.
-// As 'wordJoin' function, except wrapped as an Angular 2 pipe.
-@Pipe({
-name: 'spaced'
-})
-export class SpacedPipe implements PipeTransform {
-  transform(word : string) : string {
-    return Hangman.wordJoin(word.split('')).join('') ;
-  }
-}

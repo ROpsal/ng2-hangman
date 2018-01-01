@@ -60,18 +60,18 @@ export class PlayGameService {
         this.statusInfo.caption = caption ;
       }
 
-      else if (this.statusInfo.guessSet.size >= hm.maxGuessess()) {
+      else if (this.statusInfo.guessSet.size >= hm.maxGuesses()) {
         this.statusInfo.losses++ ;
         this.statusInfo.active = false ;
         this.statusInfo.caption = 'Better luck on the next word!' ;
         this.statusInfo.guessWord = this.statusInfo.hangWord ;
       }
 
-      else if (this.statusInfo.guessSet.size + 2 === hm.maxGuessess()) {
+      else if (this.statusInfo.guessSet.size + 2 === hm.maxGuesses()) {
         this.statusInfo.caption = 'Two chances remaining!' ;
       }
 
-      else if (this.statusInfo.guessSet.size + 1 === hm.maxGuessess()) {
+      else if (this.statusInfo.guessSet.size + 1 === hm.maxGuesses()) {
         this.statusInfo.caption = 'Take care, only one chance left!' ;
       }
 
