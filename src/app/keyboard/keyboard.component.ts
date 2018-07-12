@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { Subject} from 'rxjs/Subject';
-import 'rxjs/add/observable/fromEvent';
-import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/merge';
+import { Observable, Subject, fromEvent } from 'rxjs';
+import { debounceTime, filter, map, merge } from 'rxjs/operators';
 
 @Component({
   selector: 'app-keyboard',
@@ -35,14 +31,16 @@ export class KeyboardComponent implements OnInit {
     const isLetterAtoZ = (letter : string) : boolean => {
       return ('A'.charCodeAt(0) <= letter.charCodeAt(0))
           && ('Z'.charCodeAt(0) >= letter.charCodeAt(0)) ;
-    }
+    } ;
 
-    this.actualKeyObservable = Observable.fromEvent(document.body, 'keyup')
-      .map((e : KeyboardEvent) => typeof(e.key) !== 'undefined' ? e.key : String.fromCharCode(e.keyCode))
-      .map((text : string)  => text.toUpperCase())
-      .filter((text : string) => 1 === text.length)
-      .filter((letter : string) => isLetterAtoZ(letter))
-      .debounceTime(100) ;
+    this.actualKeyObservable = fromEvent(document.body, 'keyup')
+      .pipe(
+        map((e : KeyboardEvent) => typeof(e.key) !== 'undefined' ? e.key : String.fromCharCode(e.keyCode)),
+        map((text : string)  => text.toUpperCase()),
+        filter((text : string) => 1 === text.length),
+        filter((letter : string) => isLetterAtoZ(letter)),
+        debounceTime(100)
+      ) ;
   }
 
   ngOnInit() {
@@ -69,7 +67,7 @@ export class KeyboardComponent implements OnInit {
 
     // We're combining two observables together as one.
     this.actualKeyObservable
-      .merge(this.virtualKeyObservable)
+      .pipe(merge(this.virtualKeyObservable))
       .subscribe(consumer) ;
   }
 }
