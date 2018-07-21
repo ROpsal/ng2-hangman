@@ -54,10 +54,9 @@ export class PlayGameService {
       if (this.statusInfo.guessWord === this.statusInfo.hangWord) {
         this.statusInfo.wins++ ;
         this.statusInfo.active = false ;
-        const caption = (0 === this.statusInfo.guessSet.size)
+        this.statusInfo.caption = (0 === this.statusInfo.guessSet.size)
           ? 'Congratulations ⇨ Fantastic play!'
           : 'Congratulations on your win!' ;
-        this.statusInfo.caption = caption ;
       }
 
       else if (this.statusInfo.guessSet.size >= hm.maxGuesses()) {

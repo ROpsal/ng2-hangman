@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject, fromEvent } from 'rxjs';
-import { debounceTime, filter, map, merge } from 'rxjs/operators';
+import { Observable, Subject, fromEvent, merge } from 'rxjs';
+import { debounceTime, filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-keyboard',
@@ -9,7 +9,7 @@ import { debounceTime, filter, map, merge } from 'rxjs/operators';
 })
 export class KeyboardComponent implements OnInit {
 
-  // Items for the virtual keybaord!
+  // Items for the virtual keyboard!
   private upperKeys : Array<string> = 'QWERTYUIOP'.split('') ;
   private innerKeys : Array<string> = 'ASDFGHJKL'.split('') ;
   private lowerKeys : Array<string> = 'ZXCVBNM'.split('') ;
@@ -65,9 +65,7 @@ export class KeyboardComponent implements OnInit {
   // Pass a function that consumes a stream of letters.
   consumeLetters(consumer : (letter : string) => any) : void {
 
-    // We're combining two observables together as one.
-    this.actualKeyObservable
-      .pipe(merge(this.virtualKeyObservable))
-      .subscribe(consumer) ;
+    // Combine two observables together as one and then subscribe.
+    merge(this.actualKeyObservable, this.virtualKeyObservable).subscribe(consumer) ;
   }
 }

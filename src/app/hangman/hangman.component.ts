@@ -28,7 +28,7 @@ export class HangmanComponent implements OnInit {
         }
       }
       return canvas;
-    }
+    } ;
 
     // Initialize the two layers.
     this.canvasGallows = initCanvas('gallows') ;
