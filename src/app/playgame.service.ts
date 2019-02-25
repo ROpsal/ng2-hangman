@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs' ;
 
-import { Hangman as hm } from './hangman.helper';
+import * as hm from './hangman.helper';
 import { WordService } from './word.service';
 
 // Holder of state information for the Hangman game.

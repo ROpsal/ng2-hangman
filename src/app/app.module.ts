@@ -13,7 +13,7 @@ import { ControlComponent } from './control/control.component';
 import { StatusComponent } from './status/status.component';
 import { WinsComponent } from './wins/wins.component';
 import { KeyboardComponent } from './keyboard/keyboard.component';
-import { Hangman as hm } from './hangman.helper';
+import * as hm from './hangman.helper';
 
 @NgModule({
   declarations: [
