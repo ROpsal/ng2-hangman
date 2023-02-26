@@ -14,9 +14,9 @@ import { HangmanComponent } from './hangman/hangman.component' ;
 
 export class AppComponent  implements AfterViewInit {
 
-  @ViewChild(KeyboardComponent) private keyboardComponent : KeyboardComponent ;
-  @ViewChild(ControlComponent) private controlComponent : ControlComponent ;
-  @ViewChild(HangmanComponent) private hangmanComponent : HangmanComponent ;
+  @ViewChild(KeyboardComponent, { static: true }) private keyboardComponent : KeyboardComponent ;
+  @ViewChild(ControlComponent, { static: true }) private controlComponent : ControlComponent ;
+  @ViewChild(HangmanComponent, { static: true }) private hangmanComponent : HangmanComponent ;
 
   constructor(private playGameService : PlayGameService) {}
 
