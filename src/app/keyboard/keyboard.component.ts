@@ -35,6 +35,7 @@ export class KeyboardComponent implements OnInit {
 
     this.actualKeyObservable = fromEvent(document.body, 'keyup')
       .pipe(
+        // @ts-ignore
         map((e : KeyboardEvent) => typeof(e.key) !== 'undefined' ? e.key : String.fromCharCode(e.keyCode)),
         map((text : string)  => text.toUpperCase()),
         filter((text : string) => 1 === text.length),

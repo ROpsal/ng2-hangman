@@ -12,6 +12,7 @@ export class WordService {
   // https://developer.mozilla.org/en-US/docs/Web/API/Location
   private static baseUrl() : string {
     const re = new RegExp(/^.*\//);
+    // @ts-ignore
     return re.exec(window.location.href)[0];
     }
 
